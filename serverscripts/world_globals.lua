@@ -1,0 +1,2 @@
+WORLD_ITEM_ID_MAP = {}
+WORLD_HANDLER = nil
