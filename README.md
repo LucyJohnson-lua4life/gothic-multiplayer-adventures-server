@@ -36,7 +36,7 @@ Die Macro-Architektur sieht folgendermaßen aus.
 
 Ganz oben seht ihr den Einstiegspunkt "bootstrap.lua". Von dort aus werden die Aufrufe zum Code "feature modules" getätigt. Bei den "feature modules" handelt es sich um Unterordner welche die Skripte für einzelne Features enthalten.
 
-*Wichtig:* Die Idee hierbei ist, dass "feature modules" sich untereinander NICHT aufrufen. Das sorgt dafür, dass man Features schnell rein und raus slotten kann und soll diesbezüglich eine Veränderbarkeit der Codebasis ermöglichen.
+_Wichtig:_ Die Idee hierbei ist, dass "feature modules" sich untereinander NICHT aufrufen. Das sorgt dafür, dass man Features schnell rein und raus slotten kann und soll diesbezüglich eine Veränderbarkeit der Codebasis ermöglichen.
 
 "feature modules" können aber jeden anderen Code aufrufen der nicht in anderen "feature modules" steckt wie z.B "utils", "globals" oder "DAO's (data access objects)". "feature modules" können auch Code innerhalb des eigenen "feature module" Ordners aufrufen.
 
