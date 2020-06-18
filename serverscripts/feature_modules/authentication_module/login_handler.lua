@@ -102,15 +102,13 @@ local function runLogin(handler, playerid, name, password)
         SendPlayerMessage(playerid, 255,0,0, "Es wurde kein Name mit diesem Passwort gefunden.")
         SendPlayerMessage(playerid, 255,0,0, "Bitte versuche es noch ein mal.")
         SendPlayerMessage(playerid,0,205,0, "Tippe /register um ins Registrationsmenue zu kommen.")
-        SendPlayerMessage(playerid,0,205,0, "Tippe /login um ins Loginmenue zu kommen.")
+        SendPlayerMessage(playerid,0,205,0, "Tippe /login 'name' 'passwort' um dich einzuloggen.")
     end
-    login_handler.exitLoginMode(playerid)
 end
 
 local function handleLoginCommand(playerid, cmdtext)
     local cmd,params = GetCommand(cmdtext);
     local parameter = params:split(" ")
- 
     if cmd == "/login" and table.getn(parameter) == 2 then
         runLogin(PLAYER_HANDLER_MAP[playerid], playerid, parameter[1], parameter[2])
     end
@@ -127,7 +125,6 @@ end
 function login_handler.enterLoginMode(playerid)
     player[playerid] = {}
     player[playerid].in_login_mode = true
-    SendPlayerMessage(playerid, 0,255,0, "Tippe das Kommando /login [name] [passwort] um dich einzuloggen")
 end
 
 function login_handler.inLoginMode(playerid)

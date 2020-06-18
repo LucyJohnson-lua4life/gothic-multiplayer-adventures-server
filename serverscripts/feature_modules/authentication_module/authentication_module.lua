@@ -9,24 +9,22 @@ local authentication_module = {}
 local function handleIntegrationCommands(playerid, cmdtext)
 
     if cmdtext == "/register" then
-        login_handler.exitLoginMode(playerid)
         registration_handler.enterRegistrationMode(playerid)
-    elseif cmdtext == "/login"  then
-        registration_handler.exitRegistrationMode(playerid)
-        login_handler.enterLoginMode(playerid)
     end
+    
 end
 
 function authentication_module.enterAuthenticationMode(playerid)
     SendPlayerMessage(playerid,0,205,0, "Druecke die Taste 't' um in den chat zu kommen.")
     SendPlayerMessage(playerid,0,205,0, "Tippe /register um ins Registrationsmenue zu kommen.")
-    SendPlayerMessage(playerid,0,205,0, "Tippe /login um ins Loginmenue zu kommen.")
+    SendPlayerMessage(playerid,0,205,0, "Tippe /login 'name' 'passwort' ein um dich einzuloggen.")
     SendPlayerMessage(playerid,0,205,0, "Tippe /logout um das Spiel zu verlassen.")
     SetPlayerVirtualWorld(playerid, playerid+1)
     SpawnPlayer(playerid)
     SetPlayerPos(playerid, 4670, 848, 7116)
     player[playerid] = {}
     player[playerid].in_authentication_mode = true
+    login_handler.enterLoginMode(playerid)
     PLAYER_HANDLER_MAP[playerid] = db_config.getHandler()
 end
 
@@ -62,9 +60,11 @@ function authentication_module.OnPlayerDisconnect(playerid, reason)
 end
 
 function authentication_module.OnPlayerSpawn(playerid, classid)
-    login_handler.exitLoginMode(playerid)
-    registration_handler.exitRegistrationMode(playerid)
-    authentication_module.exitAuthenticationMode(playerid)
+    if player[playerid] ~= nil then
+        login_handler.exitLoginMode(playerid)
+        registration_handler.exitRegistrationMode(playerid)
+        authentication_module.exitAuthenticationMode(playerid)
+    end
 end
 
 return authentication_module

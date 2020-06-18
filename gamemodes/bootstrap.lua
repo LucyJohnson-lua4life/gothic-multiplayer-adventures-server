@@ -38,7 +38,7 @@ function OnGamemodeExit()
 end
 
 function OnPlayerFileList(playerid, pathFile,fileEnding, fileCounter, fileList)
-	directory_scan.OnPlayerFileList(playerid, pathFile,fileEnding, fileCounter, fileList)
+	--directory_scan.OnPlayerFileList(playerid, pathFile,fileEnding, fileCounter, fileList)
 end
 
 function OnPlayerChangeGold(playerid, currGold, oldGold)
@@ -56,7 +56,7 @@ function OnPlayerSpellCast(playerid, spellInstance)
 end
 
 function OnPlayerConnect(playerid)
-	directory_scan.OnPlayerConnect(playerid)
+	--directory_scan.OnPlayerConnect(playerid)
 	if(IsNPC(playerid) == 0) then
 		authentication_module.enterAuthenticationMode(playerid)
 	end
@@ -64,7 +64,7 @@ function OnPlayerConnect(playerid)
 end
 
 function OnPlayerMD5File(playerid, pathFile, hash)
-	directory_scan.OnPlayerMD5File(playerid, pathFile, hash)
+	--directory_scan.OnPlayerMD5File(playerid, pathFile, hash)
 end
 
 function OnPlayerResponseItem(playerid, slot, item_instance, amount, equipped) 
