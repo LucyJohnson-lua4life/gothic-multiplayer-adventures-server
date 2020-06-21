@@ -166,7 +166,7 @@ function npc_trade_module.OnPlayerCommandText(playerid, cmdtext)
 
     if cmdtext == "/wargfur" and isHunterNpc(trader_id) then
         HasItem(playerid, "ITAT_WARGFUR", trade_checkid)
-    elseif cmdtext == "/shawdowfur" then
+    elseif cmdtext == "/shadowfur" then
         HasItem(playerid, "ITAT_SHADOWFUR", trade_checkid)
     elseif cmdtext == "/trollfur" then
         HasItem(playerid, "ITAT_TROLLFUR", trade_checkid)
