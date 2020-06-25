@@ -1,4 +1,4 @@
-function FAI_ONE_H(player)
+function FAI_TEST(player)
     if FAI_CheckPlayerHealth(player) == true then
         return
     end
@@ -10,7 +10,7 @@ function FAI_ONE_H(player)
     -- Remove all invisible enemies.
     if #player["ENEMY"] > 0 then
         for key, val in ipairs(player["ENEMY"]) do
-            if IsNPC(val) == 0 and AI_PlayerList[val].Invisible == true then
+            if IsNPC(val) == 0 and AI_PlayerList[val] ~= nil and AI_PlayerList[val].Invisible == true then
                 table.remove(player["ENEMY"], key)
             end
         end
@@ -72,7 +72,7 @@ function FAI_ONE_H(player)
             end
 		end
     end
-
+    
     if FAI_UPDATE_NEXTMOVES(player) then
         return
     end
@@ -141,45 +141,28 @@ function FAI_ONE_H(player)
         if enemyWeaponMode == WEAPON_BOW or enemyWeaponMode == WEAPON_CBOW or enemyWeaponMode == WEAPON_MAGIC then
             timeToWait = timeToWait * 0.75 -- Attack more often against ranged enemies
         end
-       local randTrippleDash = math.random();
-
-        if(player.trippleDash == nil) then
-            if randTrippleDash < 0.4 then
-                player.trippleDash = 0;
-            end
-        else
-            timeToWait = 0;
-            player.trippleDash = player.trippleDash + 1;
-        end
-
         if dangle > -20 and dangle < 20 and math.abs(GetTickCount() - player.attackWait) > timeToWait then
             -- Instant attack!
             player.attackInterruptable = false
             turnPlayer(player.ID, GetAngleToPlayer(player.ID, player.ENEMY[1]))
-            ------
-            if (player.trippleDash == nil) then
-                PlayAnimation(player.ID, aniHelper("S", player.WeaponMode, "ATTACK"));
-            elseif(player.trippleDash == 1 ) then
-                PlayAnimation(player.ID, aniHelper("T", player.WeaponMode, "ATTACKL"));
-            elseif(player.trippleDash == 2) then
-                PlayAnimation(player.ID, aniHelper("T", player.WeaponMode, "ATTACKR"));
-            elseif(player.trippleDash == 3) then 
-                PlayAnimation(player.ID, aniHelper("T", player.WeaponMode, "ATTACKL"));
-                player.trippleDash = nil;
-            end
-
-            if IsNPC(player.ID) == 1 and IsNPC(player.ENEMY[1]) == 1 then
+            PlayAnimation(player.ID, aniHelper("T", player.WeaponMode, "ATTACKL"))
+			if IsNPC(player.ID) == 1 and IsNPC(player.ENEMY[1]) == 1 then
 				local hp = GetPlayerHealth(player.ENEMY[1]) - GetPlayerStrength(player.ID)
 				if hp < 0 then
 					hp = 0
 				end
 				SetPlayerHealth(player.ENEMY[1], hp)
 				OnPlayerHit(player.ENEMY[1], player.ID)
-            else
-                HitPlayer(player.ID, player.ENEMY[1]);
-            end
-
+			else
+				HitPlayer(player.ID, player.ENEMY[1])
+			end
             player.attackWait = GetTickCount()
+            
+            
+            table.insert(player.NEXTMOVES, {type=2, waittime=500})
+            table.insert(player.NEXTMOVES, {type=3, anim=aniHelper("T", player.WeaponMode, "ATTACKR"), victim=player.ENEMY[1]})
+            table.insert(player.NEXTMOVES, {type=2, waittime=500})
+            table.insert(player.NEXTMOVES, {type=3, anim=aniHelper("S", player.WeaponMode, "ATTACK"), victim=player.ENEMY[1]})
             table.insert(player.NEXTMOVES, {type=2, waittime=400})
             table.insert(player.NEXTMOVES, {type=1, anim=aniHelper("S", player.WeaponMode, "RUN")})
         elseif GetDistancePlayers(player.ID, player.ENEMY[1]) < AttackRange - 150 then
@@ -248,4 +231,65 @@ function FAI_ONE_H(player)
 		end
     end
     turnPlayer(player.ID, GetAngleToPlayer(player.ID, player.ENEMY[1]))
+end
+
+function aniHelper(first, mode, ani)
+    local animation = first.."_WALK"..ani
+    if mode == WEAPON_NONE or mode == WEAPON_FIST then
+        animation = first.."_FIST"..ani
+    elseif mode == WEAPON_1H then
+        animation = first.."_1H"..ani
+    elseif mode == WEAPON_2H then
+        animation = first.."_2H"..ani
+    elseif mode == WEAPON_BOW then
+        animation = first.."_BOW"..ani
+    elseif mode == WEAPON_CBOW then
+        animation = first.."_CBOW"..ani
+    end
+    return animation
+end
+
+function ON_WOLF_HIT(player, targetid)
+    if IsNPC(targetid) == 1 or AI_PlayerList[targetid].Invisible == false then
+        SetEnemy(player.ID, targetid);
+        -- pulle befreundete Monster in der N�he
+        for k, _ in pairs(GetFullPlayerList()) do
+            if k ~= player.ID and type(k) == "number" and AI_NPCList[k] then
+                if GetDistancePlayers(player.ID, k) < 1500 then
+                    local ai = GetPlayerAI(k)
+                    if GetGuildAttitude(player, ai) == AI_ATTITUDE_FRIENDLY then
+                        SetEnemy(k, targetid)
+                    end
+                end
+            end
+        end
+    end
+
+    if player.Aivars.Flee == true then
+        if GetPlayerHealth(player.ID) <= GetPlayerMaxHealth(player.ID) then
+            player.Aivars.Flee = false
+        else
+            return
+        end
+    end
+
+    if math.random() > 0.4 then
+        -- Remove all currently planned moves if current moves are not special attacks
+        if player.attackInterruptable == true then
+            for k in pairs(player.NEXTMOVES) do
+                player.NEXTMOVES[k] = nil
+            end
+            turnPlayer(player.ID, GetAngleToPlayer(player.ID, targetid))
+            table.insert(player.NEXTMOVES, {type=1, anim=aniHelper("T", player.WeaponMode, "PARADEJUMPB")})
+        end
+
+        if GetPlayerWeaponMode(targetid) == WEAPON_2H then
+            table.insert(player.NEXTMOVES, {type=2, waittime=200}) -- Stun for 2H
+        end
+        if player.attackWait > GetTickCount() - 2000 then
+            player.attackWait = player.attackWait + 200 -- Lesser chance to attack
+        elseif player.attackWait > GetTickCount() - 1000 then
+            player.attackWait = player.attackWait - 200 -- Higher chance to attack
+        end
+	end
 end

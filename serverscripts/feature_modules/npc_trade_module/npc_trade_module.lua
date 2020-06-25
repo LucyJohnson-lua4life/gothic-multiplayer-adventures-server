@@ -130,12 +130,6 @@ local function getInventoryList(npc_name)
     return message
 end
 
-function npc_trade_module.OnPlayerFocus(playerid, focusid)
-    if getFocusedTraderId(playerid) ~= nil then
-        SendPlayerMessage(playerid, 238, 221, 125, "Tippe '/trade help' fuer naehre Informationen.")
-    end
-end
-
 function npc_trade_module.OnPlayerCommandText(playerid, cmdtext)
     local cmd,params = GetCommand(cmdtext);
     local parameter = params:split(" ")

@@ -17,14 +17,15 @@ local npc_trade_module = require "serverscripts/feature_modules/npc_trade_module
 local heal_other = require "serverscripts/feature_modules/custom_runes/heal_other"
 local player_gold_module = require "serverscripts/feature_modules/player_gold_module/player_gold_module"
 local robbing_module = require "serverscripts/feature_modules/robbing_module/robbing_module"
-
+local npc_quest_module = require "serverscripts/feature_modules/npc_quest_module/npc_quest_module"
+local debug = require "filterscripts/debug"
 function OnGamemodeInit()
 	WORLD_HANDLER = db_config.getHandler()
 	print("--------------------");
 	print("Description gamemode");
 	print("--------------------");
 	chat_module.OnGamemodeInit()
-	EnableExitGame(0)
+	--EnableExitGame(0)
 	recovery_module.OnGamemodeInit()
 	npc_module.OnGamemodeInit()
 
@@ -107,7 +108,6 @@ end
 
 function OnPlayerFocus(playerid, focusid)
 	spells_module.OnPlayerFocus(playerid, focusid)
-	npc_trade_module.OnPlayerFocus(playerid, focsid)
 end
 
 function OnPlayerCommandText(playerid, cmdtext)
@@ -126,8 +126,9 @@ function OnPlayerCommandText(playerid, cmdtext)
 	end
 
 	robbing_module.OnPlayerCommandText(playerid, cmdtext)
-	npc_module.OnPlayerCommandText(playerid, cmdtext)
 	npc_trade_module.OnPlayerCommandText(playerid, cmdtext)
+	npc_quest_module.OnPlayerCommandText(playerid, cmdtext)
+	debug.OnPlayerCommandText(playerid, cmdtext)
 end
 
 function OnPlayerDropItem(playerid, itemid, item_instance, amount, x, y, z)
@@ -177,7 +178,8 @@ function OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 		spells_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 		item_exchange_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 		npc_trade_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
+		npc_quest_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 	end
-	npc_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, chid)
+	npc_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 end
 

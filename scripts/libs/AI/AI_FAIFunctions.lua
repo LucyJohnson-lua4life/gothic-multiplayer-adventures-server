@@ -15,6 +15,8 @@ function FAI_UPDATE_NEXTMOVES(player)
 			return true;
 		end
 		if(player.NEXTMOVES[1]["type"] == 3)then
+			
+			PlayAnimation(player.ID, player.NEXTMOVES[1]["anim"])
 			if(IsNPC(player.ID) == 1 and IsNPC(player.NEXTMOVES[1]["victim"]) == 1)then
 				local hp = GetPlayerHealth(player.NEXTMOVES[1]["victim"])-GetPlayerStrength(player.ID);
 				if(hp < 0)then

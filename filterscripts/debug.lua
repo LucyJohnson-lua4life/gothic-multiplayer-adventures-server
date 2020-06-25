@@ -63,6 +63,12 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
     if cmdtext == "/tomine1" then
         SetPlayerPos(playerid, 36387.3672,5293.35938,29799.7207)
     end
+
+    if cmdtext == "/npc" then
+        --38994, 3901, -2235
+        SpawnNPC(PaladinKing(), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
+        print("paladin king inserted")
+    end
     
 end
 

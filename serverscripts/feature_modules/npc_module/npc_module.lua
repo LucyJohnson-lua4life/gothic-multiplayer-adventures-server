@@ -2,7 +2,6 @@ require "scripts/libs/AIFunctions"
 require "scripts/default_scripts/SpawnNewWorld"
 local npc_drop = require "serverscripts/feature_modules/npc_module/npc_drop"
 local npc_respawn = require "serverscripts/feature_modules/npc_module/npc_respawn"
-local debug = require "filterscripts/debug"
 
 local npc_module = {}
 
@@ -35,10 +34,6 @@ end
 
 function npc_module.OnPlayerResponseItem(playerid, slot, item_instance, amount, equipped)
     AI_OnPlayerResponseItem(playerid, slot, item_instance, amount, equipped);
-end
-
-function npc_module.OnPlayerCommandText(playerid, cmdtext)
-    debug.OnPlayerCommandText(playerid, cmdtext)
 end
 
 function npc_module.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
