@@ -14,7 +14,7 @@ function MilitiaOfficer()
 	SetPlayerSkillWeapon(npc, SKILL_1H, 60);
 	--Items:
 	EquipArmor(npc,"ITAR_MIL_L");
-    EquipMeleeWeapon(npc,"ItMw_Meisterdegen");
+    EquipMeleeWeapon(npc,"ItMw_1h_Mil_Sword");
     
     local npcarr = {};
 	npcarr.id = npc;

@@ -11,10 +11,10 @@ function TrainingMilitia()
     SetPlayerLevel(npc, 18);
     SetPlayerMaxHealth(npc, 200);
 	SetPlayerHealth(npc, 200);
-	SetPlayerSkillWeapon(npc, SKILL_1H, 60);
+	SetPlayerSkillWeapon(npc, SKILL_1H, 50);
 	--Items:
 	EquipArmor(npc,"ITAR_MIL_L");
-    EquipMeleeWeapon(npc,"ItMw_Meisterdegen");
+    EquipMeleeWeapon(npc,"ItMw_1h_Mil_Sword");
     
     local npcarr = {};
 	npcarr.id = npc;

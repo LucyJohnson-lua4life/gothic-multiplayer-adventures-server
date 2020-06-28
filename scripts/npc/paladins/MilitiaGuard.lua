@@ -1,24 +1,24 @@
 function MilitiaGuard()
     local npc = CreateNPC(GetNewNPCName("Militia Guard"));
 	
-	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 120);
+	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 20);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
 	SetPlayerInstance(npc,"PC_HERO");
 	SetPlayerFatness(npc, 0.5);
     
-    SetPlayerStrength(npc, 100);
+    SetPlayerStrength(npc, 200);
     SetPlayerDexterity(npc, 90);
     SetPlayerLevel(npc, 18);
-    SetPlayerMaxHealth(npc, 200);
-	SetPlayerHealth(npc, 200);
-	SetPlayerSkillWeapon(npc, SKILL_1H, 60);
+    SetPlayerMaxHealth(npc, 1000);
+	SetPlayerHealth(npc, 1000);
+	SetPlayerSkillWeapon(npc, SKILL_1H, 50);
 	--Items:
 	EquipArmor(npc,"ITAR_MIL_L");
-    EquipMeleeWeapon(npc,"ItMw_Meisterdegen");
+    EquipMeleeWeapon(npc,"ItMw_1h_Mil_Sword");
     
     local npcarr = {};
 	npcarr.id = npc;
-	npcarr.daily_routine = DR_Guard_Train;
+	npcarr.daily_routine = DR_Guard_Lguard;
 	npcarr.attack_routine = FAI_TEST;
 	npcarr.WeaponMode = 3;
 	npcarr.dialogs = dialogs;

@@ -83,6 +83,12 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
         SpawnNPC(OrcElite(), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
         print("paladin king inserted")
     end
+
+    if cmdtext == "/npc3" then
+        --38994, 3901, -2235
+        SpawnNPC(MilitiaGuard(), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
+        print("paladin king inserted")
+    end
     
 end
 

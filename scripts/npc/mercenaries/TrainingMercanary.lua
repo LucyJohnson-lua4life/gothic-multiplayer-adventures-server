@@ -1,7 +1,7 @@
-function MercenaryKing()
-	local npc = CreateNPC(GetNewNPCName("Mercenary King"));
+function TrainingMercenary()
+	local npc = CreateNPC(GetNewNPCName("Mercenary Guard"));
 	
-	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 44);
+	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 27);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
 	SetPlayerInstance(npc,"PC_HERO");
 	SetPlayerFatness(npc, 0.5);
@@ -11,15 +11,15 @@ function MercenaryKing()
     SetPlayerLevel(npc, 18);
     SetPlayerMaxHealth(npc, 200);
 	SetPlayerHealth(npc, 200);
-	SetPlayerSkillWeapon(npc, SKILL_2H, 60);
+	SetPlayerSkillWeapon(npc, SKILL_1H, 50);
 	--Items:
-	EquipArmor(npc,"ITAR_DJG_H");
-    EquipMeleeWeapon(npc,"ItMw_2H_Special_03");
+	EquipArmor(npc,"ITAR_SLD_H");
+    EquipMeleeWeapon(npc,"ItMw_1H_Common_01");
     
     local npcarr = {};
 	npcarr.id = npc;
-	npcarr.daily_routine = DR_Guard_Lguard;
-	npcarr.attack_routine = FAI_TWOH_MASTER;
+	npcarr.daily_routine = DR_Guard_Train;
+	npcarr.attack_routine = FAI_ONEH_MASTER;
 	npcarr.WeaponMode = 3;
 	npcarr.dialogs = dialogs;
 	npcarr.update_func = AI_UP_MONSTER;
