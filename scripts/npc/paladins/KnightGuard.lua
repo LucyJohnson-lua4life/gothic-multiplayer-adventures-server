@@ -1,5 +1,5 @@
 function KnightGuard()
-	local npc = CreateNPC(GetNewNPCName("Knight Guard"));
+	local npc = CreateNPC(GetNewNPCName("FG Knight Guard"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 120);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
@@ -14,7 +14,7 @@ function KnightGuard()
 	SetPlayerSkillWeapon(npc, SKILL_1H, 60);
 	--Items:
 	EquipArmor(npc,"ITAR_PAL_M");
-    EquipMeleeWeapon(npc,"ItMw_1H_Blessed_01");
+    EquipMeleeWeapon(npc,"ItMw_1H_Blessed_03");
     
     local npcarr = {};
 	npcarr.id = npc;

@@ -1,5 +1,5 @@
 function TrainingMercenary()
-	local npc = CreateNPC(GetNewNPCName("Mercenary Guard"));
+	local npc = CreateNPC(GetNewNPCName("FG Mercenary Guard"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 27);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");

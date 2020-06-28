@@ -1,5 +1,5 @@
 function MercenaryEliteGuard()
-	local npc = CreateNPC(GetNewNPCName("Mercenary Elite Guard"));
+	local npc = CreateNPC(GetNewNPCName("FG Mercenary Elite Guard"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 30);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");

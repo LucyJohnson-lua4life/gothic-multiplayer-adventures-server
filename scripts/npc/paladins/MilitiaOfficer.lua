@@ -1,5 +1,5 @@
 function MilitiaOfficer()
-    local npc = CreateNPC(GetNewNPCName("Militia Officer"));
+    local npc = CreateNPC(GetNewNPCName("FG Militia Officer"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 70);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
@@ -13,7 +13,7 @@ function MilitiaOfficer()
 	SetPlayerHealth(npc, 200);
 	SetPlayerSkillWeapon(npc, SKILL_1H, 60);
 	--Items:
-	EquipArmor(npc,"ITAR_MIL_L");
+	EquipArmor(npc,"ITAR_MIL_M");
     EquipMeleeWeapon(npc,"ItMw_1h_Mil_Sword");
     
     local npcarr = {};

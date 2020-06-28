@@ -187,6 +187,6 @@ end
 
 function OnPlayerWeaponMode(playerid, weaponmode)
 	if IsNPC(playerid) then
-		print("changed to: " .. weaponmode)
+	--	print("changed to: " .. weaponmode)
 	end
 end

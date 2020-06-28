@@ -1,7 +1,7 @@
 function TrainingMilitia()
-    local npc = CreateNPC(GetNewNPCName("Militia"));
+    local npc = CreateNPC(GetNewNPCName("FG Militia Guard"));
 	
-	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 120);
+	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 89);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
 	SetPlayerInstance(npc,"PC_HERO");
 	SetPlayerFatness(npc, 0.5);
