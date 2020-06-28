@@ -136,7 +136,7 @@ function FAI_TWOH_MASTER(player)
     else
         -- Distanz zwischen Monster und Spieler < Attack Range....
         local dangle = GetPlayerAngle(player.ID) - GetAngleToPlayer(player.ID, player.ENEMY[1]); -- Angle vom Monster - Angle vom Monster zum Spieler
-        local timeToWait = 2700 -- Milliseconds to wait for the next attack
+        local timeToWait = 270 -- Milliseconds to wait for the next attack
         local enemyWeaponMode = GetPlayerWeaponMode(player.ENEMY[1])
         if enemyWeaponMode == WEAPON_BOW or enemyWeaponMode == WEAPON_CBOW or enemyWeaponMode == WEAPON_MAGIC then
             timeToWait = timeToWait * 0.75 -- Attack more often against ranged enemies
@@ -145,7 +145,7 @@ function FAI_TWOH_MASTER(player)
             -- Instant attack!
             player.attackInterruptable = false
             turnPlayer(player.ID, GetAngleToPlayer(player.ID, player.ENEMY[1]))
-            PlayAnimation(player.ID, aniHelper("S", player.WeaponMode, "ATTACK"))
+            PlayAnimation(player.ID, aniHelper("T", player.WeaponMode, "ATTACKL"))
 			if IsNPC(player.ID) == 1 and IsNPC(player.ENEMY[1]) == 1 then
 				local hp = GetPlayerHealth(player.ENEMY[1]) - GetPlayerStrength(player.ID)
 				if hp < 0 then
@@ -160,10 +160,10 @@ function FAI_TWOH_MASTER(player)
             
             
             table.insert(player.NEXTMOVES, {type=2, waittime=500})
-            table.insert(player.NEXTMOVES, {type=3, anim=aniHelper("S", player.WeaponMode, "ATTACK"), victim=player.ENEMY[1]})
+            table.insert(player.NEXTMOVES, {type=3, anim=aniHelper("T", player.WeaponMode, "ATTACKR"), victim=player.ENEMY[1]})
             table.insert(player.NEXTMOVES, {type=2, waittime=500})
             table.insert(player.NEXTMOVES, {type=3, anim=aniHelper("S", player.WeaponMode, "ATTACK"), victim=player.ENEMY[1]})
-            table.insert(player.NEXTMOVES, {type=2, waittime=400})
+            table.insert(player.NEXTMOVES, {type=2, waittime=700})
             table.insert(player.NEXTMOVES, {type=1, anim=aniHelper("S", player.WeaponMode, "RUN")})
         elseif GetDistancePlayers(player.ID, player.ENEMY[1]) < AttackRange - 150 then
             -- When AI is to near to player, quick evade.
@@ -231,65 +231,4 @@ function FAI_TWOH_MASTER(player)
 		end
     end
     turnPlayer(player.ID, GetAngleToPlayer(player.ID, player.ENEMY[1]))
-end
-
-function aniHelper(first, mode, ani)
-    local animation = first.."_WALK"..ani
-    if mode == WEAPON_NONE or mode == WEAPON_FIST then
-        animation = first.."_FIST"..ani
-    elseif mode == WEAPON_1H then
-        animation = first.."_1H"..ani
-    elseif mode == WEAPON_2H then
-        animation = first.."_2H"..ani
-    elseif mode == WEAPON_BOW then
-        animation = first.."_BOW"..ani
-    elseif mode == WEAPON_CBOW then
-        animation = first.."_CBOW"..ani
-    end
-    return animation
-end
-
-function ON_WOLF_HIT(player, targetid)
-    if IsNPC(targetid) == 1 or AI_PlayerList[targetid].Invisible == false then
-        SetEnemy(player.ID, targetid);
-        -- pulle befreundete Monster in der N�he
-        for k, _ in pairs(GetFullPlayerList()) do
-            if k ~= player.ID and type(k) == "number" and AI_NPCList[k] then
-                if GetDistancePlayers(player.ID, k) < 1500 then
-                    local ai = GetPlayerAI(k)
-                    if GetGuildAttitude(player, ai) == AI_ATTITUDE_FRIENDLY then
-                        SetEnemy(k, targetid)
-                    end
-                end
-            end
-        end
-    end
-
-    if player.Aivars.Flee == true then
-        if GetPlayerHealth(player.ID) <= GetPlayerMaxHealth(player.ID) then
-            player.Aivars.Flee = false
-        else
-            return
-        end
-    end
-
-    if math.random() > 0.4 then
-        -- Remove all currently planned moves if current moves are not special attacks
-        if player.attackInterruptable == true then
-            for k in pairs(player.NEXTMOVES) do
-                player.NEXTMOVES[k] = nil
-            end
-            turnPlayer(player.ID, GetAngleToPlayer(player.ID, targetid))
-            table.insert(player.NEXTMOVES, {type=1, anim=aniHelper("T", player.WeaponMode, "PARADEJUMPB")})
-        end
-
-        if GetPlayerWeaponMode(targetid) == WEAPON_2H then
-            table.insert(player.NEXTMOVES, {type=2, waittime=200}) -- Stun for 2H
-        end
-        if player.attackWait > GetTickCount() - 2000 then
-            player.attackWait = player.attackWait + 200 -- Lesser chance to attack
-        elseif player.attackWait > GetTickCount() - 1000 then
-            player.attackWait = player.attackWait - 200 -- Higher chance to attack
-        end
-	end
 end

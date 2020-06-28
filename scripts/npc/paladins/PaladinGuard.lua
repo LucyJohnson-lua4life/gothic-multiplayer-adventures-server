@@ -1,5 +1,5 @@
-function KnightGuard()
-	local npc = CreateNPC(GetNewNPCName("Knight Guard"));
+function PaladinGuard()
+	local npc = CreateNPC(GetNewNPCName("Paladin Guard"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 120);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
@@ -13,8 +13,8 @@ function KnightGuard()
 	SetPlayerHealth(npc, 200);
 	SetPlayerSkillWeapon(npc, SKILL_1H, 60);
 	--Items:
-	EquipArmor(npc,"ITAR_PAL_M");
-    EquipMeleeWeapon(npc,"ItMw_1H_Blessed_01");
+	EquipArmor(npc,"ITAR_PAL_H");
+    EquipMeleeWeapon(npc,"ItMw_1H_Blessed_03");
     
     local npcarr = {};
 	npcarr.id = npc;
@@ -30,9 +30,7 @@ function KnightGuard()
 	npcarr.aivar["WARNTIME"] = 0;
 
 
-
 	--npcarr.respawntime = 1800;
 	
 	return npcarr;
 end
-

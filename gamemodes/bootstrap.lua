@@ -19,6 +19,8 @@ local player_gold_module = require "serverscripts/feature_modules/player_gold_mo
 local robbing_module = require "serverscripts/feature_modules/robbing_module/robbing_module"
 local npc_quest_module = require "serverscripts/feature_modules/npc_quest_module/npc_quest_module"
 local debug = require "filterscripts/debug"
+local npc_fraction_module = require "serverscripts/feature_modules/npc_fraction_module/npc_fraction_module"
+
 function OnGamemodeInit()
 	WORLD_HANDLER = db_config.getHandler()
 	print("--------------------");
@@ -28,7 +30,7 @@ function OnGamemodeInit()
 	--EnableExitGame(0)
 	recovery_module.OnGamemodeInit()
 	npc_module.OnGamemodeInit()
-
+	npc_fraction_module.OnGamemodeInit()
 end
 
 function OnGamemodeExit()
@@ -95,7 +97,7 @@ function OnPlayerDeath(playerid, p_classid, killerid, k_classid)
 	player_death_module.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
 	spells_module.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
 	npc_module.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
-	
+	npc_fraction_module.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
 end
 
 function OnPlayerHit(playerid, killerid)
@@ -183,3 +185,8 @@ function OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 	npc_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 end
 
+function OnPlayerWeaponMode(playerid, weaponmode)
+	if IsNPC(playerid) then
+		print("changed to: " .. weaponmode)
+	end
+end

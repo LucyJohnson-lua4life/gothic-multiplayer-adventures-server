@@ -8,7 +8,7 @@ function OrcWarrior()
 	
 	SetPlayerInstance(npc,"OrcWarrior_Roam");
 	
-	SetPlayerStrength(npc, 170);
+	SetPlayerStrength(npc, 110);
 	SetPlayerDexterity(npc, 150);
 	SetPlayerLevel(npc, 30);
 	SetPlayerMaxHealth(npc, 300);
@@ -19,7 +19,7 @@ function OrcWarrior()
 	npcarr = {};
 	npcarr.id = npc;
 	npcarr.daily_routine = nil;
-	npcarr.attack_routine = FAI_WOLF_ATTACK;
+	npcarr.attack_routine = FAI_ONEH_MASTER;
 	npcarr.WeaponMode = 4;
 	npcarr.dialogs = nil;
 	npcarr.update_func = AI_UP_MONSTER;

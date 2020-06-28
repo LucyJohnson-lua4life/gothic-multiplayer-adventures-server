@@ -7,7 +7,7 @@ function OrcElite()
     
     SetPlayerInstance(npc,"OrcElite_Roam");
 
-    SetPlayerStrength(npc, 200);
+    SetPlayerStrength(npc, 110);
     SetPlayerDexterity(npc, 225);
     SetPlayerLevel(npc, 45);
     SetPlayerMaxHealth(npc, 450);
@@ -19,7 +19,7 @@ function OrcElite()
     npcarr = {};
     npcarr.id = npc;
     npcarr.daily_routine = nil;
-    npcarr.attack_routine = FAI_WOLF_ATTACK;
+    npcarr.attack_routine = FAI_ONEH_MASTER;
     npcarr.WeaponMode = 4;
     npcarr.dialogs = nil;
     npcarr.update_func = AI_UP_MONSTER;

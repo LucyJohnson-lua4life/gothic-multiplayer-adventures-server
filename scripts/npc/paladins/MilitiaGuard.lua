@@ -1,5 +1,5 @@
-function KnightGuard()
-	local npc = CreateNPC(GetNewNPCName("Knight Guard"));
+function MilitiaGuard()
+    local npc = CreateNPC(GetNewNPCName("Militia Guard"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 120);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
@@ -13,13 +13,13 @@ function KnightGuard()
 	SetPlayerHealth(npc, 200);
 	SetPlayerSkillWeapon(npc, SKILL_1H, 60);
 	--Items:
-	EquipArmor(npc,"ITAR_PAL_M");
-    EquipMeleeWeapon(npc,"ItMw_1H_Blessed_01");
+	EquipArmor(npc,"ITAR_MIL_L");
+    EquipMeleeWeapon(npc,"ItMw_Meisterdegen");
     
     local npcarr = {};
 	npcarr.id = npc;
-	npcarr.daily_routine = DR_Guard_Lguard;
-	npcarr.attack_routine = FAI_ONEH_MASTER;
+	npcarr.daily_routine = DR_Guard_Train;
+	npcarr.attack_routine = FAI_TEST;
 	npcarr.WeaponMode = 3;
 	npcarr.dialogs = dialogs;
 	npcarr.update_func = AI_UP_MONSTER;
@@ -35,4 +35,3 @@ function KnightGuard()
 	
 	return npcarr;
 end
-
