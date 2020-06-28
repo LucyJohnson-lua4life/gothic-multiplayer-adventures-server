@@ -1,5 +1,5 @@
-function PaladinKing()
-	local npc = CreateNPC(GetNewNPCName("Paladin King"));
+function MercenaryKing()
+	local npc = CreateNPC(GetNewNPCName("Mercenary King"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 120);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
@@ -13,12 +13,12 @@ function PaladinKing()
 	SetPlayerHealth(npc, 200);
 	SetPlayerSkillWeapon(npc, SKILL_1H, 60);
 	--Items:
-	EquipArmor(npc,"ITAR_PAL_H");
+	EquipArmor(npc,"ITAR_DJG_H");
     EquipMeleeWeapon(npc,"ItMw_Meisterdegen");
     
     local npcarr = {};
 	npcarr.id = npc;
-	npcarr.daily_routine = DR_Guard_Lguard;
+	npcarr.daily_routine = nil;
 	npcarr.attack_routine = FAI_ONEH_MASTER;
 	npcarr.WeaponMode = 3;
 	npcarr.dialogs = dialogs;

@@ -15,7 +15,8 @@ function FAI_UPDATE_NEXTMOVES(player)
 			return true;
 		end
 		if(player.NEXTMOVES[1]["type"] == 3)then
-			
+            local dangle = GetPlayerAngle(player.ID) - GetAngleToPlayer(player.ID, player.NEXTMOVES[1]["victim"]); 
+            local attackRange = 300
 			PlayAnimation(player.ID, player.NEXTMOVES[1]["anim"])
 			if(IsNPC(player.ID) == 1 and IsNPC(player.NEXTMOVES[1]["victim"]) == 1)then
 				local hp = GetPlayerHealth(player.NEXTMOVES[1]["victim"])-GetPlayerStrength(player.ID);
@@ -24,7 +25,7 @@ function FAI_UPDATE_NEXTMOVES(player)
 				end
 				SetPlayerHealth(player.NEXTMOVES[1]["victim"],hp);
 				OnPlayerHit(player.NEXTMOVES[1]["victim"], player.ID);
-			else
+			elseif dangle > -20 and dangle < 20 and GetDistancePlayers(player.ID, player.NEXTMOVES[1]["victim"]) < attackRange then
 				HitPlayer(player.ID, player.NEXTMOVES[1]["victim"]);
 			end
 			player.attackWait = GetTickCount()

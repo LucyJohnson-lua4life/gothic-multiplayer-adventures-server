@@ -1,5 +1,5 @@
-function PaladinKing()
-	local npc = CreateNPC(GetNewNPCName("Paladin King"));
+function KnightGuard()
+	local npc = CreateNPC(GetNewNPCName("Knight Guard"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 120);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
@@ -13,7 +13,7 @@ function PaladinKing()
 	SetPlayerHealth(npc, 200);
 	SetPlayerSkillWeapon(npc, SKILL_1H, 60);
 	--Items:
-	EquipArmor(npc,"ITAR_PAL_H");
+	EquipArmor(npc,"ITAR_PAL_M");
     EquipMeleeWeapon(npc,"ItMw_Meisterdegen");
     
     local npcarr = {};
@@ -30,7 +30,20 @@ function PaladinKing()
 	npcarr.aivar["WARNTIME"] = 0;
 
 
+
 	--npcarr.respawntime = 1800;
 	
 	return npcarr;
+end
+
+
+function TA_GUARD_01(_playerid)
+	
+	if(TA_FUNC(_playerid, 0, 0, 24, 0))then
+		AI_ClearStates(_playerid);
+		AI_SETWALKTYPE(_playerid, 0);--Let him walk!
+		AI_GOTOFP(_playerid, "FP_LIGHTHOUSE_GUARD_01");
+		AI_ALIGNTOFP(_playerid, "FP_LIGHTHOUSE_GUARD_01");
+		AI_PLAYANIMATION(_playerid, "S_LGUARD");
+	end
 end

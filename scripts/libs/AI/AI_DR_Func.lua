@@ -1,5 +1,3 @@
-
-
 function DR_GotoFP(_playerid, fp_patter)
     local fp = nil;
         if(AI_NPCList[_playerid].LASTWP ~= nil)then
@@ -13,7 +11,6 @@ function DR_GotoFP(_playerid, fp_patter)
             AI_GOTOFP(_playerid, fp);
             AI_ALIGNTOFP(_playerid, fp);
         end
-    
     
 end
 
@@ -42,12 +39,27 @@ function DR_FUNC_EAT(_playerid)
         DR_GotoFP(_playerid, "fp_roam");
         
         AI_PLAYANIMATION(_playerid,  "T_STAND_2_EAT");
-        --AI_STOPMS(_playerid,  500);
         AI_PLAYANIMATION(_playerid,  "S_EAT");
         
         AI_STOP(_playerid, math.random(10,60));
         AI_RESET_DR(_playerid);
         
         local roamNr = math.random(1, 3);
-        --AI_PLAYANIMATION(_playerid,  "R_ROAM"..roamNr);
+end
+
+
+function DR_FUNC_GUARD(_playerid)
+        AI_GOTOFP(_playerid, AI_NPCList[_playerid].LASTWP);
+        AI_ALIGNTOFP(_playerid, AI_NPCList[_playerid].LASTWP);
+        AI_PLAYANIMATION(_playerid,  "S_LGUARD");
+        --AI_STOP(_playerid, math.random(10,60));
+        --AI_RESET_DR(_playerid);
+end
+
+function DR_FUNC_TRAIN(_playerid)
+        AI_GOTOFP(_playerid, AI_NPCList[_playerid].LASTWP);
+        AI_ALIGNTOFP(_playerid, AI_NPCList[_playerid].LASTWP);
+        AI_PLAYANIMATION(_playerid,  "T_1HSFREE");
+        --AI_STOP(_playerid, math.random(10,60));
+        --AI_RESET_DR(_playerid);
 end
