@@ -1,0 +1,3 @@
+INVISIBLE_NPCS = {}
+INVISIBLE_NPCS["Bryan"] = true
+

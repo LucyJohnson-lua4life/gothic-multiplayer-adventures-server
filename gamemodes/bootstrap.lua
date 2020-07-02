@@ -13,11 +13,9 @@ local npc_module = require "serverscripts/feature_modules/npc_module/npc_module"
 local directory_scan = require "serverscripts/security/directory_scan"
 local recovery_module = require "serverscripts/feature_modules/recovery_module/recovery_module"
 local mining_module = require "serverscripts/feature_modules/mining_module/mining_module"
-local npc_trade_module = require "serverscripts/feature_modules/npc_trade_module/npc_trade_module"
 local heal_other = require "serverscripts/feature_modules/custom_runes/heal_other"
 local player_gold_module = require "serverscripts/feature_modules/player_gold_module/player_gold_module"
 local robbing_module = require "serverscripts/feature_modules/robbing_module/robbing_module"
-local npc_quest_module = require "serverscripts/feature_modules/npc_quest_module/npc_quest_module"
 local debug = require "filterscripts/debug"
 
 function OnGamemodeInit()
@@ -88,7 +86,6 @@ function OnPlayerSpawn(playerid, classid)
 end
 
 function OnPlayerChangeHealth(playerid, currHealth, oldHealth)
-	npc_trade_module.OnPlayerChangeHealth(playerid, currHealth, oldHealth)
 end
 
 function OnPlayerDeath(playerid, p_classid, killerid, k_classid)
@@ -125,8 +122,6 @@ function OnPlayerCommandText(playerid, cmdtext)
 	end
 
 	robbing_module.OnPlayerCommandText(playerid, cmdtext)
-	npc_trade_module.OnPlayerCommandText(playerid, cmdtext)
-	npc_quest_module.OnPlayerCommandText(playerid, cmdtext)
 	debug.OnPlayerCommandText(playerid, cmdtext)
 end
 
@@ -176,8 +171,6 @@ function OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 	if(IsNPC(playerid) == 0) then
 		spells_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 		item_exchange_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
-		npc_trade_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
-		npc_quest_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 	end
 	npc_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 end
