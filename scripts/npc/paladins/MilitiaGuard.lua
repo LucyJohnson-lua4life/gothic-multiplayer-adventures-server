@@ -1,5 +1,5 @@
-function MilitiaGuard()
-    local npc = CreateNPC(GetNewNPCName("FG Militia Guard"));
+function MilitiaGuard(district_name)
+    local npc = CreateNPC(GetNewNPCName(district_name.. " Militia Guard"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 20);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");

@@ -1,5 +1,5 @@
-function TrainingMercenary()
-	local npc = CreateNPC(GetNewNPCName("FG Mercenary Guard"));
+function TrainingMercenary(district_name)
+	local npc = CreateNPC(GetNewNPCName(district_name.. " Mercenary Guard"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 27);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
@@ -13,7 +13,7 @@ function TrainingMercenary()
 	SetPlayerHealth(npc, 200);
 	SetPlayerSkillWeapon(npc, SKILL_1H, 50);
 	--Items:
-	EquipArmor(npc,"ITAR_SLD_H");
+	EquipArmor(npc,"ITAR_SLD_L");
     EquipMeleeWeapon(npc,"ItMw_1H_Common_01");
     
     local npcarr = {};

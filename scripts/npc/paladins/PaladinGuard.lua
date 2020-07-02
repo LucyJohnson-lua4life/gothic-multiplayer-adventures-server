@@ -1,5 +1,5 @@
-function PaladinGuard()
-	local npc = CreateNPC(GetNewNPCName("FG Paladin Guard"));
+function PaladinGuard(district_name)
+	local npc = CreateNPC(GetNewNPCName(district_name.. " Paladin Guard"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 70);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");

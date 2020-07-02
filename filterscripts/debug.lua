@@ -66,14 +66,14 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
 
     if cmdtext == "/npc" then
         --38994, 3901, -2235
-        SpawnNPC(PaladinKing(), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
+        SpawnNPC(PaladinKing("FG"), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
         print("paladin king inserted")
     end
 
     
     if cmdtext == "/npc1" then
         --38994, 3901, -2235
-        SpawnNPC(KnightGuard(), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
+        SpawnNPC(KnightGuard("FG"), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
         print("paladin king inserted")
     end
 
@@ -86,8 +86,13 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
 
     if cmdtext == "/npc3" then
         --38994, 3901, -2235
-        SpawnNPC(MilitiaGuard(), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
+        SpawnNPC(MilitiaGuard("FG"), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
         print("paladin king inserted")
+    end
+
+    if cmdtext == "/mi" then
+        print("oehm")
+        print(IsNPC(playerid))
     end
     
 end

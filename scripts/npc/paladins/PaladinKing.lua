@@ -1,5 +1,5 @@
-function PaladinKing()
-	local npc = CreateNPC(GetNewNPCName("FG Paladin King"));
+function PaladinKing(district_name)
+	local npc = CreateNPC(GetNewNPCName(district_name.. " Paladin King"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 50);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");

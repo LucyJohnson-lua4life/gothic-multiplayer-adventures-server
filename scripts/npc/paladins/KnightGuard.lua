@@ -1,5 +1,5 @@
-function KnightGuard()
-	local npc = CreateNPC(GetNewNPCName("FG Knight Guard"));
+function KnightGuard(district_name)
+	local npc = CreateNPC(GetNewNPCName(district_name.. " Knight Guard"));
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 120);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
