@@ -16,6 +16,7 @@ local mining_module = require "serverscripts/feature_modules/mining_module/minin
 local heal_other = require "serverscripts/feature_modules/custom_runes/heal_other"
 local player_gold_module = require "serverscripts/feature_modules/player_gold_module/player_gold_module"
 local robbing_module = require "serverscripts/feature_modules/robbing_module/robbing_module"
+local npc_interaction_module = require "serverscripts/feature_modules/npc_interaction_module/npc_interaction_module"
 local debug = require "filterscripts/debug"
 
 function OnGamemodeInit()
@@ -96,6 +97,7 @@ end
 
 function OnPlayerHit(playerid, killerid)
 	npc_module.OnPlayerHit(playerid, killerid)
+	npc_interaction_module.OnPlayerHit(playerid, killerid)
 end
 
 function OnPlayerText(playerid, text)
@@ -122,6 +124,7 @@ function OnPlayerCommandText(playerid, cmdtext)
 	end
 
 	robbing_module.OnPlayerCommandText(playerid, cmdtext)
+	npc_interaction_module.OnPlayerCommandText(playerid, cmdtext)
 	debug.OnPlayerCommandText(playerid, cmdtext)
 end
 
@@ -173,6 +176,7 @@ function OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 		item_exchange_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 	end
 	npc_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
+	npc_interaction_module.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 end
 
 function OnPlayerUnconscious(playerid, p_classid, killerid, k_classid)
