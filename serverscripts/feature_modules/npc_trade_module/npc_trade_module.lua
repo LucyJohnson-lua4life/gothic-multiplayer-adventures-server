@@ -1,5 +1,6 @@
 require "serverscripts/feature_modules/npc_trade_module/price_table"
 require "serverscripts/player_globals"
+require "serverscripts/has_item_globals"
 
 -- TODO: this class needs some serious refactoring!
 
@@ -7,7 +8,7 @@ local inventory_dao = require "serverscripts/daos/inventory_dao"
 local npc_trade_module = {}
 
 local trader_npc = {}
-local trade_checkid = 500
+local trade_checkid = NPC_TRADE_MODULE_CHECK_ID
 trader_npc["Goffrey (1H Weapons)"] = {}
 trader_npc["Phillipe (Armors)"] = {}
 trader_npc["Brad the Hunter"] = {}

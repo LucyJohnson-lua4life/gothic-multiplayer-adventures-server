@@ -1,11 +1,13 @@
+require "serverscripts/has_item_globals"
+
 local crystalball = {}
 local saved_face = {}
 local ACTIVATION_ITEM = "ITMI_AQUAMARINE"
 local check_ids = {}
-check_ids["save"] = 1
-check_ids["watch"] = 2
-check_ids["end"] = 3
-check_ids["introduction"] = 4
+check_ids["save"] = SPELLS_MODULE_CHECK_ID1
+check_ids["watch"] = SPELLS_MODULE_CHECK_ID2
+check_ids["end"] = SPELLS_MODULE_CHECK_ID3
+check_ids["introduction"] = CRYSTALLBALL_CHECK_ID4
 
 function crystalball.OnPlayerCommandText(playerid, cmdtext)
     if cmdtext == "/cbs" then

@@ -1,11 +1,12 @@
 require "serverscripts/utils/script_functions"
 require "serverscripts/player_globals"
+require "serverscripts/has_item_globals"
 local inventory_dao = require "serverscripts/daos/inventory_dao"
 --string.match(GetPlayerName(id), "Hunter")
 --ItMi_Addon_Bloodwyn_Kopf
 --ItWr_SaturasFirstMessage_Addon
 local npc_quest_module = {}
-local QUEST_ID = 42
+local QUEST_ID = NPC_QUEST_MODULE_CHECK_ID
 
 
 local function handlePhillipe(playerid, text)

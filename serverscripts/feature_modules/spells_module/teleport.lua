@@ -1,4 +1,5 @@
 
+require "serverscripts/has_item_globals"
 local teleport = {}
 
 local Player = {}
@@ -7,9 +8,9 @@ local Player = {}
 --2: check id for cmd = "/tp"
 local check_ids = {}
 local ACTIVATION_ITEM = "ITMI_GOLDRING"
-check_ids["tps"] = 1
-check_ids["tp"] = 2
-check_ids["introduction"] = 3
+check_ids["tps"] = SPELLS_MODULE_CHECK_ID1
+check_ids["tp"] = SPELLS_MODULE_CHECK_ID2
+check_ids["introduction"] = SPELLS_MODULE_CHECK_ID3
 
 local function savePlayerPos(playerid)
     if Player[playerid] == nil then

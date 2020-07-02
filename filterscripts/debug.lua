@@ -94,6 +94,10 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
         print("oehm")
         print(IsNPC(playerid))
     end
+
+    if cmdtext == "/heads" then
+        GiveItem(playerid, "ITMI_ADDON_BLOODWYN_KOPF", 5)
+    end
     
 end
 

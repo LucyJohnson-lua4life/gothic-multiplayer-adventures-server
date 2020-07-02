@@ -1,10 +1,11 @@
+require "serverscripts/has_item_globals"
 local teleport_focus = {}
 local Player = {}
 local ACTIVATION_ITEM = "ITMI_SILVERRING"
 local check_ids = {}
-check_ids["tpfs"] = 1
-check_ids["tpf"] = 2
-check_ids["introduction"] = 3
+check_ids["tpfs"] = SPELLS_MODULE_CHECK_ID1
+check_ids["tpf"] = SPELLS_MODULE_CHECK_ID2
+check_ids["introduction"] = SPELLS_MODULE_CHECK_ID3
 
 
 local function saveFocusPos(playerid)

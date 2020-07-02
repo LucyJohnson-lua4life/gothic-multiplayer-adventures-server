@@ -1,3 +1,4 @@
+require "serverscripts/has_item_globals"
 require "serverscripts/player_globals"
 local class_globals = require "serverscripts/class_globals"
 local player_dao = require "serverscripts/daos/player_dao"
@@ -6,8 +7,8 @@ local vampirism = {}
 
 local check_ids = {}
 local ACTIVATION_ITEM = "ITAT_TEETH"
-check_ids["transform"] = 1
-check_ids["introduction"] = 2
+check_ids["transform"] = SPELLS_MODULE_CHECK_ID1
+check_ids["introduction"] = SPELLS_MODULE_CHECK_ID2
 
 local function loadPlayerInventory(handler, playerid, name)
     local items = inventory_dao.getAllItemsAndAmountByName(handler, name)

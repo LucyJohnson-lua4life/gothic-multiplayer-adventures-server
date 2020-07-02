@@ -1,10 +1,11 @@
 
 require "serverscripts/utils/script_functions"
 require "serverscripts/player_globals"
+require "serverscripts/has_item_globals"
 local class_globals = require "serverscripts/class_globals"
 local inventory_dao = require "serverscripts/daos/inventory_dao"
 local item_exchange_module = {}
-local check_id = 1000
+local check_id = ITEM_EXCHANGE_MODULE_ID
 local focus = {}
 local planned_amount = {}
 

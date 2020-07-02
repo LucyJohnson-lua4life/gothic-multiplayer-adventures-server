@@ -1,3 +1,4 @@
+require "serverscripts/has_item_globals"
 local focus_protection = {}
 local FREEZE_TIME_SECS = 4
 
@@ -9,9 +10,9 @@ local player_original_dexterity = {}
 
 local ACTIVATION_ITEM = "ITMI_DARKPEARL"
 local check_ids = {}
-check_ids["protection on"] = 1
-check_ids["protection off"] = 2
-check_ids["introduction"] = 3
+check_ids["protection on"] = SPELLS_MODULE_CHECK_ID1
+check_ids["protection off"] = SPELLS_MODULE_CHECK_ID2
+check_ids["introduction"] = SPELLS_MODULE_CHECK_ID3
 
 
 function CheckFocusProtectionVictims()

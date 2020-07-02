@@ -1,3 +1,4 @@
+
 local teleport = require "serverscripts/feature_modules/spells_module/teleport"
 local teleport_focus = require "serverscripts/feature_modules/spells_module/teleport_focus"
 local resize = require "serverscripts/feature_modules/spells_module/resize"
@@ -5,6 +6,7 @@ local crystallball = require "serverscripts/feature_modules/spells_module/crysta
 local focus_protection = require "serverscripts/feature_modules/spells_module/focus_protection"
 local vampirism = require "serverscripts/feature_modules/spells_module/vampirism"
 local tracking = require "serverscripts/feature_modules/spells_module/tracking"
+
 local spells_module = {}
 
 

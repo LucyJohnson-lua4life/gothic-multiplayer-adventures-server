@@ -1,8 +1,9 @@
+require "serverscripts/has_item_globals"
 local tracking = {}
 local ACTIVATION_ITEM = "ITAT_SKELETONBONE"
 local check_ids = {}
-check_ids["faehrte aufnehmen"] = 1
-check_ids["introduction"] = 2
+check_ids["faehrte aufnehmen"] = SPELLS_MODULE_CHECK_ID1
+check_ids["introduction"] = SPELLS_MODULE_CHECK_ID2
 
 
 function tracking.OnPlayerCommandText(playerid, cmdtext)
