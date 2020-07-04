@@ -1,4 +1,4 @@
-require "serverscripts/feature_modules/npc_trade_module/price_table"
+require "serverscripts/price_table"
 require "serverscripts/player_globals"
 require "serverscripts/has_item_globals"
 
@@ -45,6 +45,7 @@ trader_npc["Bryan (Armors)"]["ItNm_Kopfgeldjaegerruestung"] = true
 trader_npc["Gerald (2H Weapons)"]["ItMw_2H_Axe_L_01"] = true
 trader_npc["Gerald (2H Weapons)"]["ItNm_Berserkeraxt"] = true
 trader_npc["Gerald (2H Weapons)"]["ItNm_Berserkerschwert"] = true
+
 
 local TRADE_FOR_GOLD_FURS = {"ITAT_WARGFUR", "ITAT_SHADOWFUR", "ITAT_TROLLFUR", "ITAT_WOLFFUR", "ITAT_ADDON_KEILERFUR"}
 

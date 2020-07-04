@@ -912,7 +912,7 @@ function InitNewWorldNPC()
   --wisp forest lake
   SpawnNPC(VLK_7000_Goffrey(), "FP_STAND_SARAH", world);
   SpawnNPC(VLK_7001_Phillipe(), "FP_STAND_JORA", world);
-  SpawnNPC(VLK_7002_Brad(), "FP_STAND_BALTRAM", world);
+  SpawnNPC(VLK_7002_Brad(), "FP_STAND_HAKON", world);
   SpawnNPC(VLK_7003_Ryan(), "FP_STAND", world);
   SpawnNPC(VLK_7004_Lian(), "FP_ROAM_TAVERNE_TROLLAREA_02_04", world);
   SpawnNPC(VLK_7005_Bryan(), "FP_STAND_NW_TAVERNE_IN_RANGERMEETING_04", world);

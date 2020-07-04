@@ -42,7 +42,7 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
     if cmd == "/furryball" then
         GiveItem(playerid, "ItAt_WargFur",10)
         GiveItem(playerid, "ItAt_WolfFur",10)
-        GiveItem(playerid, "ItAt_ShawdowFur",10)
+        GiveItem(playerid, "ITAT_SHADOWFUR",10)
         GiveItem(playerid, "ItAt_TrollFur",10)
         GiveItem(playerid, "ItAt_Addon_Keilerfur",10)
     end

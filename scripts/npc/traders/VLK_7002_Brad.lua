@@ -2,7 +2,7 @@
 function VLK_7002_Brad()
 	local npc = CreateNPC(GetNewNPCName("Brad"));
 	
-	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 35);
+	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_Pony", 35);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
 	SetPlayerInstance(npc,"PC_HERO");
 	SetPlayerFatness(npc, 0.5);
@@ -36,8 +36,8 @@ function TA_VLK_7002(_playerid)
 	if(TA_FUNC(_playerid, 0, 0, 24, 0))then
 		AI_ClearStates(_playerid);
 		AI_SETWALKTYPE(_playerid, 0);--Let him walk!
-		AI_GOTOFP(_playerid, "FP_STAND_BALTRAM");
-		AI_ALIGNTOFP(_playerid, "FP_STAND_BALTRAM");
+		AI_GOTOFP(_playerid, "FP_STAND_HAKON");
+		AI_ALIGNTOFP(_playerid, "FP_STAND_HAKON");
 		AI_PLAYANIMATION(_playerid, "S_LGUARD");
 	end
 end
