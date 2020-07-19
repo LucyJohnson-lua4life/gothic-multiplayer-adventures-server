@@ -23,65 +23,67 @@ local function getRandomDrop(drop_collection)
     return drop_collection[index]
 end
 
-local function getDropForInstance(instance)
-    if (instance == "MinecrawlerWarrior") then
+local function getDropForInstance(name)
+    if (string.match(name, "^Minecrawler Warrior.*")) then
         return {getRandomDrop(DROP_CRAWLER_WARRIOR)}
-    elseif (instance == "Molerat") then
+    elseif (string.match(name, "^Molerat.*")) then
         return {"ItFoMutton", "ItFo_Water"}
-    elseif (instance == "DRAGONSNAPPER") then
+    elseif (string.match(name, "^Dragon Snapper.*")) then
         return { "ItRw_Arrow"}
-    elseif (instance == "Warg") then
+    elseif (string.match(name, "^Warg.*")) then
         return {"ItFoMutton", "ItRw_Arrow", "ItAt_WargFur"}
-    elseif (instance == "OrcElite_Roam") then
+    elseif (string.match(name, "^Orc Elite.*")) then
         return {"ItFo_Booze", "ItFo_Stew", getRandomDrop(DROP_ORC_ELITE)}
-    elseif (instance == "OrcScout_Roam") then
+    elseif (string.match(name, "^Orc Scout.*")) then
         return {"ItFoMutton", "ItFo_Water"}
-    elseif (instance == "OrcShaman_Sit") then
+    elseif (string.match(name, "^Orc Shaman.*")) then
         return {getRandomDrop(DROP_ORC_WARRIOR)}
-    elseif (instance == "OrcWarrior_Roam") then
+    elseif (string.match(name, "^Orc Warrior.*")) then
         return {"ItFo_Beer", "ItFo_Bacon", getRandomDrop(DROP_ORC_WARRIOR)}
-    elseif (instance == "Razor") then
+    elseif (string.match(name, "^Razor.*")) then
         return {"ItRw_Arrow"}
-    elseif (instance == "Scavenger") then
+    elseif (string.match(name, "^Scavenger.*")) then
         return {"ItFoMutton", "ItFo_Water"}
-    elseif (instance == "Shadowbeast") then
+    elseif (string.match(name, "^Shadowbeast.*")) then
         return {"ItAt_ShadowFur", "ItRw_Arrow"}
-    elseif (instance == "Sheep") then
+    elseif (string.match(name, "^Sheep.*")) then
         return {"ItFoMutton", "ItFo_Water"}
-    elseif (instance == "Skeleton") then
-        return {"ItFo_Milk"}
-    elseif (instance == "Snapper") then
-        return {"ItRw_Arrow", "ItFo_Booze", "ItRw_Arrow"}
-    elseif (instance == "Swamprat") then
-        return {"ItFoMutton", "ItFo_Water"}
-    elseif (instance == "Swampshark") then
-        return {"ItFo_Fish"}
-    elseif (instance == "Troll") then
-        return {"ItFo_Stew", "ItAt_TrollFur", "ItRw_Arrow", getRandomDrop(DROP_TROLL)}
-    elseif (instance == "Waran") then
-        return {"ItFo_Fish"}
-    elseif (instance == "Wolf") then
-        return {"ItFoMutton", "ItFo_Water", "ItAt_WolfFur"}
-    elseif (instance == "Keiler") then
-        return {"ItFo_Sausage", "ItRw_Arrow", "ItAt_Addon_KeilerFur"}
-    elseif (instance == "Lurker") then
-        return {"ItFo_Fish", "ItFo_FishSoup"}
-    elseif (instance == "Gobbo_Black") then
-        return {"ItFo_Beer","ItFo_Cheese", getRandomDrop(DROP_GOBBO)}
-    elseif (instance == "Skeleton_Lord") then
+    elseif (string.match(name, "^Skeleton Lord.*")) then
         return {getRandomDrop(DROP_SKELETON_LORD)}
-    elseif (instance == "DEMONLORD") then
+    elseif (string.match(name, "^Skeleton.*")) then
+        return {"ItFo_Milk"}
+    elseif (string.match(name, "^Snapper.*")) then
+        return {"ItRw_Arrow", "ItFo_Booze", "ItRw_Arrow"}
+    elseif (string.match(name, "^Swamp Rat.*")) then
+        return {"ItFoMutton", "ItFo_Water"}
+    elseif (string.match(name, "^Swamp Shark.*")) then
+        return {"ItFo_Fish"}
+    elseif (string.match(name, "^Troll.*")) then
+        return {"ItFo_Stew", "ItAt_TrollFur", "ItRw_Arrow", getRandomDrop(DROP_TROLL)}
+    elseif (string.match(name, "^Waran.*")) then
+        return {"ItFo_Fish"}
+    elseif (string.match(name, "^Wolf.*")) then
+        return {"ItFoMutton", "ItFo_Water", "ItAt_WolfFur"}
+    elseif (string.match(name, "^Keiler.*")) then
+        return {"ItFo_Sausage", "ItRw_Arrow", "ItAt_Addon_KeilerFur"}
+    elseif (string.match(name, "^Lurker.*")) then
+        return {"ItFo_Fish", "ItFo_FishSoup"}
+    elseif (string.match(name, "^Black Goblin.*")) then
+        return {"ItFo_Beer","ItFo_Cheese", getRandomDrop(DROP_GOBBO)}
+    elseif (string.match(name, "^Demon Lord.*")) then
         return {getRandomDrop(DROP_LIBRARY_DEMON)}
-    elseif (instance == "Troll_Black") then
+    elseif (string.match(name, "^Black Troll.*")) then
         return {getRandomDrop(DROP_BLACK_TROLL)}
-    elseif (instance == "DRAGONISLE_KEYMASTER") then
+    elseif (string.match(name, "^Captn Hook.*")) then
         return {getRandomDrop(DROP_DEAD_PIRATE_CAPTN)}
-    elseif (instance == "SwampGolem") then
+    elseif (string.match(name, "^Earth Titan.*")) then
         return {getRandomDrop(DROP_EARTH_TITAN)}
-    elseif (instance == "DEMON") then
+    elseif (string.match(name, "^Demon.*")) then
         return {getRandomDrop(DROP_XARDAS_DEMON)}
-    elseif (instance == "CRYPT_SKELETON_LORD") then
+    elseif (string.match(name, "^Keymaster.*")) then
         return {"ItKe_MonastarySecretLibrary_Mis"}
+    elseif (string.match(name, "^Rufus.*")) then
+        return {"StandardBrief"}
     else
         return {"ItFoMutton", "ItFo_Water"}
     end
@@ -122,7 +124,7 @@ end
 
 function npc_drop.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
     if IsNPC(playerid) == 1 and IsNPC(killerid) == 0 then
-        local items = getDropForInstance(GetPlayerInstance(playerid))
+        local items = getDropForInstance(GetPlayerName(playerid))
         for _, value in pairs(items) do
             giveItemForInstance(killerid, value)
             SendPlayerMessage(killerid, 255,228,181, value.." gefunden.")

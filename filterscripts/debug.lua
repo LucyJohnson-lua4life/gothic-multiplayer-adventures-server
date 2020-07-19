@@ -90,6 +90,25 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
         print("paladin king inserted")
     end
 
+    if cmdtext == "/bigby" then
+        --38994, 3901, -2235
+        SpawnNPC(BigBlackWolf(), "HAFEN", "NEWWORLD\\NEWWORLD.ZEN");
+    end
+
+    if cmdtext == "/trex" then
+        --38994, 3901, -2235
+        SpawnNPC(TRex(), "HAFEN", "NEWWORLD\\NEWWORLD.ZEN");
+    end
+
+    if cmdtext == "/panther" then
+        --38994, 3901, -2235
+        SpawnNPC(Quotemoc(), "HAFEN", "NEWWORLD\\NEWWORLD.ZEN");
+    end
+
+    if cmdtext == "/pestarmor" then
+        GiveItem(playerid, "ITAR_PESTDOKTOR", 5)
+    end
+
     if cmdtext == "/mi" then
         print("oehm")
         print(IsNPC(playerid))
@@ -98,6 +117,12 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
     if cmdtext == "/heads" then
         GiveItem(playerid, "ITMI_ADDON_BLOODWYN_KOPF", 5)
     end
+
+    if cmdtext == "/brief" then
+        GiveItem(playerid, "STANDARDBRIEF", 1)
+    end
+
+    
     
 end
 

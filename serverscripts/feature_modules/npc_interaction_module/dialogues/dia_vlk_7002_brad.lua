@@ -5,7 +5,7 @@ require "serverscripts/price_table"
 local inventory_dao = require "serverscripts/daos/inventory_dao"
 local check_id = DIA_BRAD_FURSELL_CHECKID
 local dia_vlk_7002_brad = {}
-
+ 
 local function handleFurSellDialogue(playerid, text)
     if string.match(text, "Arbeit") then
         SendPlayerMessage(playerid, 255, 255, 255, "Brad sagt: Sehr gut. Zurzeit kann ich nicht rausgehen zum jagen. Also brauche ich jemanden der mir <Felle> besorgt.")

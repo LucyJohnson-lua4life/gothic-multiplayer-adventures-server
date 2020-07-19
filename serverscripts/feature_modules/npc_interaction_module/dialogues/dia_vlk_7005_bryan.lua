@@ -18,7 +18,6 @@ local function handleBanditDialogue(playerid, text)
     else
         return false
     end
-
 end
 
 local function handleBanditRewardDialogue(playerid,item_instance, amount, equipped, checkid)
@@ -49,9 +48,7 @@ end
 
 
 function dia_vlk_7005_bryan.OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
-    
     handleBanditRewardDialogue(playerid,item_instance, amount, equipped, checkid)
-
 end
 
 

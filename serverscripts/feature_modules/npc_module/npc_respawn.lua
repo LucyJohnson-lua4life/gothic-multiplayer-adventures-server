@@ -4,118 +4,100 @@ local npc_respawn = {}
 local time_npc_is_dead = {}
 local respawn_time_npc = {}
 
-local function getNpcForInstance(instance)
-    if (instance == "Blattcrawler") then
+local function getNpcForName(name)
+    if (string.match(name, "^Blattcrawler.*")) then
         return Blattcrawler();
-    elseif (instance == "Bloodfly") then
+    elseif (string.match(name, "^Bloodfly.*")) then
         return Bloodfly();
-    elseif (instance == "Bloodhound") then
+    elseif (string.match(name, "^Bloodhound.*")) then
         return Bloodhound();
-    elseif (instance == "Giant_Bug") then
-        return Giant_Bug();
-    elseif (instance == "Giant_DesertRat") then
-        return Giant_DesertRat();
-    elseif (instance == "Gobbo_Black") then
+    elseif (string.match(name, "^Black Goblin.*")) then
         return Gobbo_Black();
-    elseif (instance == "Gobbo_Green") then
+    elseif (string.match(name, "^Goblin.*")) then
         return Gobbo_Green();
-    elseif (instance == "Gobbo_Skeleton") then
+    elseif (string.match(name, "^Goblin Skeleton.*")) then
         return Gobbo_Skeleton();
-    elseif (instance == "BridgeGolem") then
-        return BridgeGolem();
-    elseif (instance == "FireGolem") then
-        return FireGolem();
-    elseif (instance == "IceGolem") then
-        return IceGolem();
-    elseif (instance == "Shattered_Golem") then
-        return Shattered_Golem();
-    elseif (instance == "StoneGolem") then
-        return StoneGolem();
-    elseif (instance == "SwampGolem") then
+    elseif (string.match(name, "^Earth Titan.*")) then
         return EarthTitan();
-    elseif (instance == "Harpie") then
+    elseif (string.match(name, "^Harpy.*")) then
         return Harpie();
-    elseif (instance == "Keiler") then
+    elseif (string.match(name, "^Dragon Snapper.*")) then
+        return DragonSnapper();
+    elseif (string.match(name, "^Keiler.*")) then
         return Keiler();
-    elseif (instance == "Lurker") then
+    elseif (string.match(name, "^Lurker.*")) then
         return Lurker();
-    elseif (instance == "Meatbug") then
+    elseif (string.match(name, "^Meatbug.*")) then
         return Meatbug();
-    elseif (instance == "Minecrawler") then
+    elseif (string.match(name, "^Minecrawler.*")) then
         return Minecrawler();
-    elseif (instance == "MinecrawlerWarrior") then
+    elseif (string.match(name, "^Minecrawler Warrior.*")) then
         return MinecrawlerWarrior();
-    elseif (instance == "Molerat") then
+    elseif (string.match(name, "^Molerat.*")) then
         return Molerat();
-    elseif (instance == "OrcBiter") then
+    elseif (string.match(name, "^Orc Biter.*")) then
         return OrcBiter();
-    elseif (instance == "Warg") then
+    elseif (string.match(name, "^Warg.*")) then
         return OrcDog();
-    elseif (instance == "OrcElite_Roam") then
+    elseif (string.match(name, "^Orc Elite.*")) then
         return OrcElite();
-    elseif (instance == "OrcScout_Roam") then
+    elseif (string.match(name, "^Orc Scout.*")) then
         return OrcScout();
-    elseif (instance == "OrcShaman_Sit") then
+    elseif (string.match(name, "^Orc Shaman.*")) then
         return OrcShaman();
-    elseif (instance == "OrcWarrior_Roam") then
+    elseif (string.match(name, "^Orc Warrior.*")) then
         return OrcWarrior();
-    elseif (instance == "Razor") then
+    elseif (string.match(name, "^Razor.*")) then
         return Razor();
-    elseif (instance == "Scavenger") then
+    elseif (string.match(name, "^Scavenger.*")) then
         return Scavenger();
-    elseif (instance == "Shadowbeast") then
+    elseif (string.match(name, "^Shadowbeast.*")) then
         return Shadowbeast();
-    elseif (instance == "Sheep") then
+    elseif (string.match(name, "^Sheep.*")) then
         return Sheep();
-    elseif (instance == "Skeleton") then
-        return Skeleton();
-    elseif (instance == "Snapper") then
-        return Snapper();
-    elseif (instance == "Stoneguardian") then
-        return Stoneguardian();
-    elseif (instance == "SwampDrone") then
-        return SwampDrone();
-    elseif (instance == "Swamprat") then
-        return Swamprat();
-    elseif (instance == "Swampshark") then
-        return Swampshark();
-    elseif (instance == "Troll") then
-        return Troll();
-    elseif (instance == "Waran") then
-        return Waran();
-    elseif (instance == "Warg") then
-        return Warg();
-    elseif (instance == "Wolf") then
-        return Wolf();
-    elseif (instance == "Zombie01") then
-        return Kadaver();
-    elseif (instance == "Zombie02") then
-        return Zombie2();
-    elseif (instance == "Zombie03") then
-        return Zombie3();
-    elseif (instance == "Zombie04") then
-        return Zombie4();
-    elseif (instance == "Skeleton_Lord") then
+    elseif (string.match(name, "^Skeleton Warrior.*")) then
+        return SkeletonWarrior()
+    elseif (string.match(name, "^Skeleton Lord.*")) then
         return SkeletonLord()
-    elseif (instance == "Demon") then
-        return XardasDemon();
-    elseif (instance == "DemonLord") then
+    elseif (string.match(name, "^Skeleton.*")) then
+        return Skeleton();
+    elseif (string.match(name, "^Snapper.*")) then
+        return Snapper();
+    elseif (string.match(name, "^Stoneguardian.*")) then
+        return Stoneguardian();
+    elseif (string.match(name, "^Swampshark.*")) then
+        return Swampshark();
+    elseif (string.match(name, "^Black Troll.*")) then
+        return Troll_Black();
+    elseif (string.match(name, "^Troll.*")) then
+        return Troll();
+    elseif (string.match(name, "^Waran.*")) then
+        return Waran();
+    elseif (string.match(name, "^Warg.*")) then
+        return Warg();
+    elseif (string.match(name, "^Wolf.*")) then
+        return Wolf();
+    elseif (string.match(name, "^Zombie.*")) then
+        return Zombie2();
+    elseif (string.match(name, "^Demon Lord.*")) then
         return DemonLord();
-    elseif (instance == "DRAGONISLE_KEYMASTER") then
+    elseif (string.match(name, "^Demon.*")) then
+        return XardasDemon();
+    elseif (string.match(name, "^Captn Hook.*")) then
         return DeadPirateCaptn();
-    elseif (instance == "Troll_Black") then
-        return Troll_Black()
+    elseif (string.match(name, "^Rufus.*")) then
+        return Rufus_Dead();
     end
 end
 
 local function respawnNpc(playerid)
-    local instance = GetPlayerInstance(playerid);
+    local name = GetPlayerName(playerid);
     local world = GetPlayerWorld(playerid);
     local wp = AI_NPCList[playerid].StartWP;
     
     DestroyNPC(playerid);
     
-    SpawnNPC(getNpcForInstance(instance), wp, world);
+    SpawnNPC(getNpcForName(name), wp, world);
 end
 
 function CheckDeadNpcForRespawn()
@@ -133,7 +115,7 @@ function npc_respawn.OnGamemodeInit()
 end
 
 function npc_respawn.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
-    if AI_NPCList[playerid] ~= nil then
+    if AI_NPCList[playerid] ~= nil and IsNPC(playerid) == 1 then
         time_npc_is_dead[playerid] = os.clock();
         respawn_time_npc[playerid] = AI_NPCList[playerid].RespawnTime
     end

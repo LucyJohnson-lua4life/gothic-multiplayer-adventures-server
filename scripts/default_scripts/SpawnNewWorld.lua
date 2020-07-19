@@ -909,7 +909,14 @@ function InitNewWorldNPC()
 
 
 
+  --quest npcs
+  
+  SpawnNPC(Rufus_Dead(), "FP_RUFUS_DEAD", world);
   --wisp forest lake
+  SpawnNPC(VLK_2000_Vivien(), "FP_STAND_CITY_20", world);
+  SpawnNPC(VLK_2001_Olga(), "FP_TAVERN_BAR", world);
+
+
   SpawnNPC(VLK_7000_Goffrey(), "FP_STAND_SARAH", world);
   SpawnNPC(VLK_7001_Phillipe(), "FP_STAND_JORA", world);
   SpawnNPC(VLK_7002_Brad(), "FP_STAND_HAKON", world);
@@ -917,5 +924,8 @@ function InitNewWorldNPC()
   SpawnNPC(VLK_7004_Lian(), "FP_ROAM_TAVERNE_TROLLAREA_02_04", world);
   SpawnNPC(VLK_7005_Bryan(), "FP_STAND_NW_TAVERNE_IN_RANGERMEETING_04", world);
   --SpawnNPC(VLK_7006_Weapontrader(), "FP_STAND_NW_TAVERNE_IN_RANGERMEETING_05", world);
+
+
+  
   
   end
