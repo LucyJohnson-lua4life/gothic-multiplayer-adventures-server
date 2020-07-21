@@ -1,6 +1,6 @@
 function StrongBandit()
 	local npc = CreateNPC(GetNewNPCName("Strong Bandit"));
-	
+	SetPlayerInstance(npc,"DRAGONISLE_KEYMASTER");	
     SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", math.random(35,80));
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
 	SetPlayerFatness(npc, 0.5);

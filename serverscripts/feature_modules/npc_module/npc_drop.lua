@@ -23,7 +23,7 @@ local function getRandomDrop(drop_collection)
     return drop_collection[index]
 end
 
-local function getDropForInstance(name)
+local function getDropForName(name)
     if (string.match(name, "^Minecrawler Warrior.*")) then
         return {getRandomDrop(DROP_CRAWLER_WARRIOR)}
     elseif (string.match(name, "^Molerat.*")) then
@@ -68,6 +68,10 @@ local function getDropForInstance(name)
         return {"ItFo_Sausage", "ItRw_Arrow", "ItAt_Addon_KeilerFur"}
     elseif (string.match(name, "^Lurker.*")) then
         return {"ItFo_Fish", "ItFo_FishSoup"}
+    elseif (string.match(name, "^Strong Bandit.*")) then
+        return {"ITMI_ADDON_BLOODWYN_KOPF"}
+    elseif (string.match(name, "^Bandit.*")) then
+        return {"ITMI_ADDON_BLOODWYN_KOPF"}
     elseif (string.match(name, "^Black Goblin.*")) then
         return {"ItFo_Beer","ItFo_Cheese", getRandomDrop(DROP_GOBBO)}
     elseif (string.match(name, "^Demon Lord.*")) then
@@ -122,15 +126,23 @@ local function sendMessageOnSpecialItem(playerid, item_instance)
     end
 end
 
-function npc_drop.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
+local function giveDrop(playerid, killerid)
     if IsNPC(playerid) == 1 and IsNPC(killerid) == 0 then
-        local items = getDropForInstance(GetPlayerName(playerid))
+        local items = getDropForName(GetPlayerName(playerid))
         for _, value in pairs(items) do
             giveItemForInstance(killerid, value)
             SendPlayerMessage(killerid, 255,228,181, value.." gefunden.")
             sendMessageOnSpecialItem(killerid, value)
         end
     end
+end
+
+function npc_drop.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
+    giveDrop(playerid,killerid)
+end
+
+function npc_drop.OnPlayerUnconscious(playerid, p_classid, killerid, k_classid)
+    giveDrop(playerid,killerid)
 end
 
 

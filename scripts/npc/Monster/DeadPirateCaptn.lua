@@ -1,6 +1,6 @@
 function DeadPirateCaptn()
 	local npc = CreateNPC(GetNewNPCName("Captn Hook"));
-	
+	SetPlayerInstance(npc,"DRAGONISLE_KEYMASTER");	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 164);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
 	SetPlayerFatness(npc, 0.5);

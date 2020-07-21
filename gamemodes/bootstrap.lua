@@ -181,7 +181,7 @@ function OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 end
 
 function OnPlayerUnconscious(playerid, p_classid, killerid, k_classid)
-	npc_module.OnPlayerUnconscious(playerid, p_classid, killerid, k_classid)
+	
 end
 
 function OnPlayerWeaponMode(playerid, weaponmode)

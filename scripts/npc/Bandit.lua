@@ -1,6 +1,8 @@
 function Bandit()
-	local npc = CreateNPC(GetNewNPCName("Strong Bandit"));
-	
+	local npc = CreateNPC(GetNewNPCName("Bandit"));
+
+	-- this instance makes sure, that the player gets instantly killed by the enemy and vice versa, instead of getting unconsious
+	SetPlayerInstance(npc,"DRAGONISLE_KEYMASTER");
     SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", math.random(35,80));
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
 	SetPlayerFatness(npc, 0.5);
