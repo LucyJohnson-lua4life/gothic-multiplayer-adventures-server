@@ -35,6 +35,11 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
         SetPlayerMagicLevel(playerid, 3)
     end
 
+    if cmd == "/turn" then
+        local fid = GetFocus(playerid)
+        SetPlayerAngle(fid,180)
+    end
+
     if cmd == "/rosebud" then
         SetPlayerGold(playerid, 100000)
     end
@@ -64,6 +69,11 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
         SetPlayerPos(playerid, 36387.3672,5293.35938,29799.7207)
     end
 
+    if cmdtext == "/tobandits" then
+        SetPlayerPos(playerid, 57084,1906,-25900)
+    end
+
+
     if cmdtext == "/npc" then
         --38994, 3901, -2235
         SpawnNPC(PaladinKing("FG"), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
@@ -88,6 +98,15 @@ function debug.OnPlayerCommandText(playerid, cmdtext)
         --38994, 3901, -2235
         SpawnNPC(MilitiaGuard("FG"), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
         print("paladin king inserted")
+    end
+
+    if cmdtext == "/npc4" then
+        --38994, 3901, -2235
+        SpawnNPC(StrongBandit(), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
+    end
+
+    if cmdtext == "/npc5" then
+        SpawnNPC(DeadPirateCaptn(), "TAVERNE", "NEWWORLD\\NEWWORLD.ZEN");
     end
 
     if cmdtext == "/bigby" then

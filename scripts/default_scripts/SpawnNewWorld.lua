@@ -1,4 +1,6 @@
 
+
+
 function InitNewWorldNPC()
   local world = "NEWWORLD\\NEWWORLD.ZEN";
   
@@ -907,12 +909,23 @@ function InitNewWorldNPC()
   SpawnNPC(Warg(), "FP_LIGHTTOWER_FOREST_04", world);
   SpawnNPC(Warg(), "FP_LIGHTTOWER_FOREST_05", world);
 
+  SpawnNPC(StrongBandit(), "FP_BANDIT_CAMP_PLATEU_01", world);
+  SpawnNPC(Bandit(), "FP_BANDIT_CAMP_PLATEU_02", world);
+  SpawnNPC(Bandit(), "FP_BANDIT_CAMP_PLATEU_03", world);
+  SpawnNPC(Bandit(), "FP_BANDIT_CAMP_PLATEU_04", world);
+  SpawnNPC(StrongBandit(), "FP_BANDIT_CAMP_PLATEU_05", world);
 
+  SpawnNPC(StrongBandit(), "FP_BANDIT_FARM_FORREST_01", world);
+  SpawnNPC(StrongBandit(), "FP_BANDIT_FARM_FORREST_02", world);
+  SpawnNPC(Bandit(), "FP_BANDIT_FARM_FORREST_03", world);
+  SpawnNPC(Bandit(), "FP_BANDIT_FARM_FORREST_04", world);
+  SpawnNPC(Bandit(), "FP_BANDIT_FARM_FORREST_05", world);
 
   --quest npcs
   
   SpawnNPC(Rufus_Dead(), "FP_RUFUS_DEAD", world);
   --wisp forest lake
+  SpawnNPC(VLK_1000_Ambient(), "NW_CITY_TAVERN_IN_07 ", world);
   SpawnNPC(VLK_2000_Vivien(), "FP_STAND_CITY_20", world);
   SpawnNPC(VLK_2001_Olga(), "FP_TAVERN_BAR", world);
 

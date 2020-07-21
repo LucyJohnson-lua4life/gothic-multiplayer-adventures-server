@@ -2,6 +2,7 @@ require "scripts/libs/AIFunctions"
 require "scripts/default_scripts/SpawnNewWorld"
 local npc_drop = require "serverscripts/feature_modules/npc_module/npc_drop"
 local npc_respawn = require "serverscripts/feature_modules/npc_module/npc_respawn"
+local npc_human_instakill = require "serverscripts/feature_modules/npc_module/npc_human_instakill"
 
 local npc_module = {}
 
@@ -39,6 +40,10 @@ end
 function npc_module.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
     npc_respawn.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
     npc_drop.OnPlayerDeath(playerid, p_classid, killerid, k_classid)
+end
+
+function npc_module.OnPlayerUnconscious(playerid, p_classid, killerid, k_classid)
+    npc_human_instakill.OnPlayerUnconscious(playerid, p_classid, killerid, k_classid)
 end
 
 return npc_module

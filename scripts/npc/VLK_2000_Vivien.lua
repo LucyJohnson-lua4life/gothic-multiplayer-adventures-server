@@ -12,7 +12,7 @@ function VLK_2000_Vivien()
 	--Items:
 	EquipArmor(npc,"ITAR_VlkBabe_L");
 	--EquipMeleeWeapon(npc,"ItMw_1h_Bau_Mace");
-
+	
 	
 	local npcarr = {};
 	npcarr.id = npc;

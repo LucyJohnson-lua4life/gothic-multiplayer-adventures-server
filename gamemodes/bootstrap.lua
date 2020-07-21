@@ -28,6 +28,7 @@ function OnGamemodeInit()
 	--EnableExitGame(0)
 	recovery_module.OnGamemodeInit()
 	npc_module.OnGamemodeInit()
+
 end
 
 function OnGamemodeExit()
@@ -180,6 +181,7 @@ function OnPlayerHasItem(playerid, item_instance, amount, equipped, checkid)
 end
 
 function OnPlayerUnconscious(playerid, p_classid, killerid, k_classid)
+	npc_module.OnPlayerUnconscious(playerid, p_classid, killerid, k_classid)
 end
 
 function OnPlayerWeaponMode(playerid, weaponmode)

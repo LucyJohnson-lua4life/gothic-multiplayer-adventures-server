@@ -14,7 +14,7 @@ function Wolf()
     SetPlayerMaxHealth(npc, 300);
     SetPlayerHealth(npc, 300);
     
-    npcarr = {};
+    local npcarr = {};
     npcarr.id = npc;
     npcarr.daily_routine = DR_Monster_MidEat;
     npcarr.attack_routine = FAI_WOLF_ATTACK;

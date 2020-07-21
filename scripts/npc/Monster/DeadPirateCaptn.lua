@@ -3,7 +3,6 @@ function DeadPirateCaptn()
 	
 	SetPlayerAdditionalVisual(npc,"Hum_Body_Naked0",1, "Hum_Head_FatBald", 164);
 	SetPlayerWalk(npc, "HumanS_Relaxed.mds");
-	SetPlayerInstance(npc,"DRAGONISLE_KEYMASTER");
 	SetPlayerFatness(npc, 0.5);
     
     SetPlayerStrength(npc, 100);
@@ -16,10 +15,10 @@ function DeadPirateCaptn()
 	EquipArmor(npc,"ITAR_PIR_H_Addon");
     EquipMeleeWeapon(npc,"ItMw_Meisterdegen");
     
-    npcarr = {};
+    local npcarr = {};
 	npcarr.id = npc;
 	npcarr.daily_routine = nil;
-	npcarr.attack_routine = FAI_WOLF_ATTACK;
+	npcarr.attack_routine = FAI_ONEH_MASTER;
 	npcarr.WeaponMode = 3;
 	npcarr.dialogs = nil;
 	npcarr.update_func = AI_UP_MONSTER;

@@ -93,10 +93,8 @@ end
 local function respawnNpc(playerid)
     local name = GetPlayerName(playerid);
     local world = GetPlayerWorld(playerid);
-    local wp = AI_NPCList[playerid].StartWP;
-    
+    local wp = AI_NPCList[playerid].StartWP
     DestroyNPC(playerid);
-    
     SpawnNPC(getNpcForName(name), wp, world);
 end
 
